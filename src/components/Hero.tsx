@@ -52,7 +52,7 @@ export function Hero() {
                 Hi, I&apos;m Ranjit
               </h1>
               <h2 className="text-xl md:text-2xl text-muted-foreground">
-                Full stack developer
+                Full-Stack web developer
               </h2>
               <p className="text-base md:text-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
                 High level experience web design and knowledge, producing quality work.
@@ -69,7 +69,7 @@ export function Hero() {
           {/* Profile Image with Blob Background */}
           <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mx-auto ">
             <Image
-              src={`/images/${theme === "dark" ? "mainIconsdark.svg" : "mainIcons.svg"}`} alt="work icons"
+              src={`/images/${theme && theme == "light" ? "mainIcons.svg" : "mainIconsdark.svg"}`} alt="work icons"
               height={650}
               width={650}
             />

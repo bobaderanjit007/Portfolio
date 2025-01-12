@@ -23,10 +23,12 @@ export function Skills() {
       skills: [
         { name: "HTML", level: 90 },
         { name: "CSS", level: 80 },
-        { name: "JavaScript", level: 65 },
+        { name: "JavaScript", level: 90 },
         { name: "Bootstrap", level: 85 },
-        { name: "React Js", level: 80 },
-        { name: "Angular Js", level: 60 },
+        { name: "Tailwind CSS", level: 80 },
+        { name: "React Js", level: 85 },
+        { name: "Next Js", level: 85 },
+        { name: "Shadcn", level: 80 },
       ]
     },
     backend: {
@@ -34,12 +36,14 @@ export function Skills() {
       subtitle: "More than 1 year",
       icon: <Database className="h-6 w-6" />,
       skills: [
+        { name: "Node Js", level: 80 },
+        { name: "Express Js", level: 85 },
         { name: "Python", level: 80 },
         { name: "Django", level: 70 },
-        { name: "C++", level: 75 },
-        { name: "Node Js", level: 70 },
-        { name: "C#", level: 60 },
+        { name: "Go", level: 65 },
         { name: "MySQL", level: 90 },
+        { name: "MongoDB", level: 85 },
+        { name: "Postgresql", level: 80 },
       ]
     },
     other: {
@@ -49,7 +53,8 @@ export function Skills() {
       skills: [
         { name: "Git", level: 80 },
         { name: "GitHub", level: 75 },
-        { name: "Canva", level: 85 },
+        { name: "GiTea", level: 95 },
+        { name: "Figma", level: 85 },
       ]
     }
   }
