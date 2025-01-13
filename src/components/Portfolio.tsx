@@ -41,7 +41,7 @@ const projects = [
 
 export function Portfolio() {
   return (
-    <section className="py-16 md:py-24" id="portfolio">
+    <section className="py-16 md:py-24" id="projects">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Projects</h2>

@@ -10,7 +10,7 @@ export function Hero() {
 
   const { theme } = useTheme();
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Black hole video background */}
       <video
         autoPlay
@@ -25,11 +25,11 @@ export function Hero() {
       {/* Content */}
       <div className="container mx-auto px-2 pt-20 md:pt-12 relative z-10">
         {/* Hello World text */}
-        <div className="flex justify-center mb-4 md:mb-6">
+        {/* <div className="flex justify-center mb-4 md:mb-6">
           <div className="inline-flex items-center rounded-full px-4 py-2 text-sm">
             {'<'} Hello World {'>'}
           </div>
-        </div>
+        </div> */}
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 text-center lg:text-left">
