@@ -79,6 +79,7 @@ export function Hero() {
               </p>
               <Button
                 size="lg"
+                onClick={()=> window.location.href = "#contact" }
                 className="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-8"
               >
                 Contact Me →

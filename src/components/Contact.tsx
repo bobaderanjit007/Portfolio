@@ -1,10 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -14,10 +15,52 @@ export function Contact() {
     message: ""
   })
 
+  const [statusMessage, setStatusMessage] = useState("")
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Add your email service integration here
-    console.log(formData)
+    setIsLoading(true)
+
+    if (!formData.name || !formData.email || !formData.project) {
+      setStatusMessage("Please fill in all required fields")
+      setIsSuccess(false)
+      setIsLoading(false)
+      return
+    }
+
+    try {
+      const result = await emailjs.sendForm(
+        'service_bx167ci',
+        'template_ss4j82r',
+        formRef.current!,
+        'JR-eFsHXd41bYXZQ5'
+      )
+
+      if (result.text === "OK") {
+        setStatusMessage("Message sent successfully")
+        setIsSuccess(true)
+        setFormData({ name: "", email: "", project: "", message: "" })
+
+        setTimeout(() => {
+          setStatusMessage("")
+        }, 5000)
+      } else {
+        throw new Error("Unexpected response from EmailJS")
+      }
+    } catch (error) {
+      console.error("Error sending email:", error)
+      if (error) {
+        setStatusMessage("There's an issue with the email service authentication. Please contact the administrator.")
+      } else {
+        setStatusMessage("Oops! Something went wrong. Please try again later.")
+      }
+      setIsSuccess(false)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -55,7 +98,7 @@ export function Contact() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">
@@ -63,6 +106,7 @@ export function Contact() {
                 </label>
                 <Input
                   id="name"
+                  name="name"
                   placeholder="Your name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -75,6 +119,7 @@ export function Contact() {
                 </label>
                 <Input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="Your email"
                   value={formData.email}
@@ -90,6 +135,7 @@ export function Contact() {
               </label>
               <Input
                 id="project"
+                name="project"
                 placeholder="Project name"
                 value={formData.project}
                 onChange={(e) => setFormData({ ...formData, project: e.target.value })}
@@ -103,6 +149,7 @@ export function Contact() {
               </label>
               <Textarea
                 id="message"
+                name="message"
                 placeholder="Your message"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -111,8 +158,14 @@ export function Contact() {
               />
             </div>
 
-            <Button type="submit" size="lg" className="rounded-full">
-              Send Message
+            {statusMessage && (
+              <p className={`text-sm ${isSuccess ? 'text-green-500' : 'text-red-500'}`}>
+                {statusMessage}
+              </p>
+            )}
+
+            <Button type="submit" size="lg" className="rounded-full" disabled={isLoading}>
+              {isLoading ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </div>
