@@ -1,11 +1,8 @@
 "use client"
-
-import { useState } from "react"
-import { Check, LayoutGrid, Pen,Code2, X } from 'lucide-react'
+import { Check, LayoutGrid, Pen,Code2 } from 'lucide-react'
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
