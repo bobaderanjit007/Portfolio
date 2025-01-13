@@ -37,7 +37,7 @@ export function About() {
                 <p className="text-sm text-muted-foreground">Completed<br />projects</p>
               </div>
               <div className="text-center">
-                <h3 className="text-2xl font-bold mb-1">70+</h3>
+                <h3 className="text-2xl font-bold mb-1">18+</h3>
                 <p className="text-sm text-muted-foreground">World wide<br />clients</p>
               </div>
             </div>

@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Left section - Name and title */}
           <div className="text-center md:text-left">
             <h2 className="text-2xl font-bold mb-2">Ranjit Bobade</h2>
-            <p className="text-muted-foreground">Full stack developer</p>
+            <p className="text-muted-foreground">Full-Stack Web Developer</p>
           </div>
 
           {/* Middle section - Navigation */}

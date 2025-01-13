@@ -8,7 +8,7 @@ import { useTheme } from "next-themes"
 
 export function Hero() {
   const { theme } = useTheme();
-  
+
   return (
     <div id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Black hole video background */}
@@ -40,25 +40,25 @@ export function Hero() {
           <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
             {/* Social Links */}
             <div className="flex justify-center lg:justify-start gap-6">
-              <Link 
-                href="https://linkedin.com" 
-                target="_blank" 
+              <Link
+                href="https://linkedin.com"
+                target="_blank"
                 className="text-muted-foreground hover:text-purple-500 transition-colors"
               >
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn Profile</span>
               </Link>
-              <Link 
-                href="https://dribbble.com" 
-                target="_blank" 
+              <Link
+                href="https://dribbble.com"
+                target="_blank"
                 className="text-muted-foreground hover:text-purple-500 transition-colors"
               >
                 <Palette className="h-6 w-6" />
                 <span className="sr-only">Dribbble Profile</span>
               </Link>
-              <Link 
-                href="https://github.com" 
-                target="_blank" 
+              <Link
+                href="https://github.com"
+                target="_blank"
                 className="text-muted-foreground hover:text-purple-500 transition-colors"
               >
                 <Github className="h-6 w-6" />
@@ -72,14 +72,14 @@ export function Hero() {
                 Hi, I&apos;m Ranjit
               </h1>
               <h2 className="text-xl md:text-2xl text-muted-foreground">
-                Full-Stack web developer
+                Full-Stack Web Developer
               </h2>
               <p className="text-base md:text-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
                 High level experience web design and knowledge, producing quality work.
               </p>
               <Button
                 size="lg"
-                onClick={()=> window.location.href = "#contact" }
+                onClick={() => window.location.href = "#contact"}
                 className="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-8"
               >
                 Contact Me →
