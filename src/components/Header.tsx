@@ -16,6 +16,7 @@ export function Header() {
   const [mounted, setMounted] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => setMounted(true), [])
 
@@ -32,6 +33,8 @@ export function Header() {
     const handleScroll = () => {
       const sections = navigation.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + 100; // Add offset for header
+      setIsScrolled(window.scrollY > 0);
+      
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (section && section.offsetTop <= scrollPosition) {
@@ -56,10 +59,12 @@ export function Header() {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('hashchange', handleHashChange);
     };
-  }, []);
+  }, [navigation]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm transition-shadow duration-300 ${
+      isScrolled ? 'shadow-lg shadow-black/[0.03] border-b border-black/[0.09] dark:border-white/[0.09] dark:shadow-white/[0.04]' : ''
+    }`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="text-xl font-semibold">
