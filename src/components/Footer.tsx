@@ -1,12 +1,30 @@
 "use client";
-import Link from "next/link"
-import { Facebook, Instagram, Twitter, ArrowUp } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Facebook, Instagram, Twitter, ArrowUp } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 export default function Footer() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className="bg-background py-16 relative">
@@ -20,30 +38,21 @@ export default function Footer() {
 
           {/* Middle section - Navigation */}
           <nav className="flex justify-center gap-6">
-            <Link 
-              href="#services" 
-              className="text-foreground hover:text-primary transition-colors"
-            >
+            <Link href="#services" className="text-foreground hover:text-primary transition-colors">
               Services
             </Link>
-            <Link 
-              href="#skills" 
-              className="text-foreground hover:text-primary transition-colors"
-            >
+            <Link href="#skills" className="text-foreground hover:text-primary transition-colors">
               Skills
             </Link>
-            <Link 
-              href="#projects" 
-              className="text-foreground hover:text-primary transition-colors"
-            >
+            <Link href="#projects" className="text-foreground hover:text-primary transition-colors">
               Portfolio
             </Link>
           </nav>
 
           {/* Right section - Social links */}
           <div className="flex justify-center md:justify-end gap-4">
-            <Link 
-              href="https://facebook.com" 
+            <Link
+              href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground hover:text-primary transition-colors"
@@ -51,8 +60,8 @@ export default function Footer() {
               <Facebook className="h-5 w-5" />
               <span className="sr-only">Facebook</span>
             </Link>
-            <Link 
-              href="https://instagram.com" 
+            <Link
+              href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground hover:text-primary transition-colors"
@@ -60,8 +69,8 @@ export default function Footer() {
               <Instagram className="h-5 w-5" />
               <span className="sr-only">Instagram</span>
             </Link>
-            <Link 
-              href="https://twitter.com" 
+            <Link
+              href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground hover:text-primary transition-colors"
@@ -78,17 +87,18 @@ export default function Footer() {
         </div>
 
         {/* Scroll to top button */}
-        <Button
-          variant="secondary"
-          size="icon"
-          className="fixed bottom-4 right-4 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
-          onClick={scrollToTop}
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="h-4 w-4" />
-        </Button>
+        {isVisible && (
+          <Button
+            variant="secondary"
+            size="icon"
+            className="fixed bottom-4 right-4 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="h-4 w-4" />
+          </Button>
+        )}
       </div>
     </footer>
-  )
+  );
 }
-
