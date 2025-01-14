@@ -107,7 +107,6 @@ export function Portfolio() {
 
 
 function ProjectCard({ project }: ProjectCardProps){
-  const [isExpanded, setIsExpanded] = useState(false)
 
   return (
     <Card className="h-full flex flex-col">
@@ -124,7 +123,7 @@ function ProjectCard({ project }: ProjectCardProps){
       <CardContent className="p-6 flex flex-col flex-grow">
         <CardTitle className="mb-2">{project.title}</CardTitle>
         <CardDescription className="mb-4">
-          {isExpanded ? project.description : `${project.description.slice(0, 90)}...`}
+          {`${project.description.slice(0, 90)}...`}
         </CardDescription>
         <div className="mt-auto flex justify-between items-center">
           <Button asChild>
