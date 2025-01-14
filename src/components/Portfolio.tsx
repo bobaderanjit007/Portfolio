@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/carousel"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog"
-import { useState } from "react"
 import { Github } from "lucide-react"
 
 type projectType = {
