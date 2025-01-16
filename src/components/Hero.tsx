@@ -9,6 +9,13 @@ import { useTheme } from "next-themes"
 export function Hero() {
   const { theme } = useTheme();
 
+  const handleScrollDown = () => {
+    window.scrollBy({
+      top: 700, // Scroll down by 100px
+      behavior: 'smooth', // Smooth scrolling
+    });
+  };
+
   return (
     <div id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Black hole video background */}
@@ -89,7 +96,7 @@ export function Hero() {
         </div>
 
         {/* Scroll Down */}
-        <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-sm text-muted-foreground">
+        <div onClick={handleScrollDown} className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-sm text-muted-foreground cursor-pointer">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-purple-600"></div>
             Scroll down
