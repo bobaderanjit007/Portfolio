@@ -11,7 +11,6 @@ export function About() {
           <h2 className="text-3xl font-bold mb-4">About Me</h2>
           <p className="text-muted-foreground">My introduction</p>
         </div>
-
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <Image
             src="/images/2.jpg"
@@ -20,7 +19,6 @@ export function About() {
             height={400}
             className="rounded-2xl mx-auto"
           />
-
           <div>
             <p className="text-muted-foreground mb-8 text-center md:text-left">
               Web developer, with extensive knowledge and years of experience, working in web technologies 
@@ -55,4 +53,3 @@ export function About() {
     </section>
   )
 }
-

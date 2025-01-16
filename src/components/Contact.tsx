@@ -173,4 +173,3 @@ export function Contact() {
     </section>
   )
 }
-
