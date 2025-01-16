@@ -103,8 +103,6 @@ export function Portfolio() {
 }
 
 
-
-
 function ProjectCard({ project }: ProjectCardProps){
 
   return (
@@ -161,4 +159,3 @@ function ProjectCard({ project }: ProjectCardProps){
     </Card>
   )
 }
-
