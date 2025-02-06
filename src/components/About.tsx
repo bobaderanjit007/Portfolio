@@ -42,7 +42,7 @@ export function About() {
 
             <div className="flex justify-center md:justify-start">
               <Button asChild size="lg" className="rounded-full">
-                <Link href="/assets/RanjitCV.pdf" download>
+                <Link href="/Ranjit_Bobade_FullStackDeveloper.pdf" target="_blank">
                   Download CV <Download className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
